@@ -1,5 +1,13 @@
 # Web3UIKit Button
 
+Required props : 
+Each of these are functions that return a promise 
+- `injectionPromiseSync` : injecting window.ethereum or similar ; unlock wallet here
+- `signaturePromiseSync` : Signs the transaction using wallet
+- `transactionPromiseSync` : Waits for transaction to be confirmed on blockchain
+- `indexerPromiseSync` : Waits for data to be indexed by indexer like graphprotocol
+- `callbackPromiseAsync` : this is the only async prop, called after all the steps are complete
+
 Sample : 
 ```
         <Button 
@@ -50,6 +58,6 @@ Sample :
             }
           })}
           indexerPromiseSync = {() => new Promise((r,x) => setTimeout(r, 3000))}
-          callbackAsync={() => {new Promise()}}
+          callbackPromiseAsync={() => {new Promise()}}
           colorScheme="blue">Do Onchain transaction</Button>
 ```
